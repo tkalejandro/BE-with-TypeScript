@@ -2,6 +2,8 @@ export default {
     port: 1337,
     dbUri: "mongodb://localhost:27017/rest-api-tutorial",
     saltWorkFactor: 10,
+    accessTokenTtl: '15mn',
+    refreshTokenTtl: '1y',
     publicKey: `-----BEGIN PUBLIC KEY-----
 MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAu1SU1LfVLPHCozMxH2Mo
 4lgOEePzNm0tRgeLezV6ffAt0gunVTLw7onLRnrq0/IzW7yWR7QkrmBL7jTKEn5u
