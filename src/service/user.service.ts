@@ -10,3 +10,13 @@ export const createUser = async (input: DocumentDefinition<
         throw new Error(e)
     }
 }
+
+export const validatePassword = async ({email, password} : {email: string, password: string}) => {
+    const user = await UserModel.findOne({email})
+
+    if(!user){
+        return false;
+    }
+
+
+}
