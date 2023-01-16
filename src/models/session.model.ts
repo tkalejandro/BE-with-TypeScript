@@ -1,9 +1,8 @@
 import mongoose, { mongo } from 'mongoose'
-import bcrypt from 'bcrypt'
-import config from 'config'
+import { UserDocument } from './user.model'
 
-export interface SchemaDocument extends mongoose.Document {
-    user: SchemaDocument['_id'];
+export interface SessionDocument extends mongoose.Document {
+    user: UserDocument["_id"];
     name: string;
     valid: boolean;
     userAgent: string;
@@ -28,6 +27,6 @@ const sessionSchema = new mongoose.Schema({
 
 //Missing type. More info here -> https://github.com/Automattic/mongoose/issues/11449
 
-const SessionModel = mongoose.model("Session", sessionSchema)
+const SessionModel = mongoose.model<SessionDocument>("Session", sessionSchema)
 
 export default SessionModel

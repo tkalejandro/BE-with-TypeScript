@@ -1,3 +1,4 @@
+import { omit } from "lodash";
 import { DocumentDefinition } from "mongoose";
 import UserModel, { UserDocument } from "../models/user.model";
 
@@ -18,5 +19,9 @@ export const validatePassword = async ({email, password} : {email: string, passw
         return false;
     }
 
+    const isValid = await user.comparePassword(password)
 
+    if(!isValid) return false
+
+    return omit(user.toJSON(), 'password')
 }
